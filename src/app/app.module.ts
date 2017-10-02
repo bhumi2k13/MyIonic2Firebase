@@ -10,12 +10,20 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
-
+const config = {
+  apiKey: "AIzaSyDh8XO7nZhbLHo8rUUpmHoxMOwui-1uu1U",
+  authDomain: "myionic2firebase-fbff2.firebaseapp.com",
+  databaseURL: "https://myionic2firebase-fbff2.firebaseio.com",
+  projectId: "myionic2firebase-fbff2",
+  storageBucket: "myionic2firebase-fbff2.appspot.com",
+  messagingSenderId: "1050122846240"
+};
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function HttpLoaderFactory(http: Http) {
@@ -52,7 +60,8 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot()//,
+    //AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -64,6 +64,7 @@ export class User {
     seq
       .map(res => res.json())
       .subscribe(res => {
+        
         // If the API returned a successful response, mark the user as logged in
         if (res.status == 'success') {
           this._loggedIn(res);
